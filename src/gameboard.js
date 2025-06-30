@@ -12,7 +12,8 @@ export default class Gameboard {
             const newX = direction === "horizontal" ? x + i : x;
             const newY = direction === "vertical" ? y + i : y;
 
-            if (newX >= 10 || newY >= 10 || this._board[newX][newY]) {
+            if (newX >= 10 || newY >= 10 || this._board[newY][newX]) {
+                console.log(newX, newY, this._board[newY][newX])
                 throw new Error("Invalid placement")
             }
             positions.push([newX, newY])
@@ -21,7 +22,7 @@ export default class Gameboard {
         positions.forEach(([x, y]) => {
             this._board[y][x] = ship;
         })
-
+        console.log("success");
         this._ships.push(ship)
     }
 
@@ -49,6 +50,10 @@ export default class Gameboard {
         return this._ships.every((ship) => {
             return ship.isSunk();
         })
+    }
+
+    get ships() {
+        return this._ships;
     }
 
 }

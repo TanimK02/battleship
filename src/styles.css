@@ -1,0 +1,131 @@
+*,
+::before,
+::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body,
+html {
+    width: 100vw;
+    height: 100vh;
+}
+
+.infoContainer {
+    height: 7%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    display: flex;
+    height: 93%;
+    width: 100%;
+}
+
+.left,
+.right {
+    width: 50%;
+    height: 100%;
+}
+
+.playerInfo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 20%;
+}
+
+.playerInfo button {
+    margin-left: 0.25rem;
+    padding: 0.5rem 1rem;
+    border: 1px solid black;
+    border-radius: 5px;
+    display: none;
+    text-transform: capitalize;
+    background-color: green;
+    color: whitesmoke;
+}
+
+.playerInfo button:active {
+    opacity: 80%;
+}
+
+.gameboardContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.gameboard {
+    width: 400px;
+    height: 400px;
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(10, 1fr);
+    gap: 0px;
+    border: 1px solid gray;
+}
+
+.square {
+    border: 1px solid gray;
+
+}
+
+.selectableSquare:hover {
+    background-color: rgb(224, 219, 219);
+}
+
+.ship {
+    background-color: darkgreen;
+}
+
+.hit {
+    background-color: red;
+}
+
+.missed {
+    background-color: blue;
+}
+
+.highlight {
+    background-color: rgba(0, 255, 0, 0.4);
+}
+
+.highlight:hover {
+    background-color: rgba(0, 255, 0, 0.4);
+}
+
+.resetContainer {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    width: 400px;
+    height: 300px;
+    border: 1px solid gray;
+    background-color: white;
+    border-radius: 20px;
+}
+
+.resetContainer button {
+    margin-top: 20px;
+    margin-left: 0.25rem;
+    padding: 0.5rem 1rem;
+    border: 1px solid black;
+    text-transform: uppercase;
+    background-color: green;
+    color: white;
+    border-radius: 5px;
+}
+
+.resetContainer button:active {
+    filter: brightness(70%);
+}

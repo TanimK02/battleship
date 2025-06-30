@@ -13,4 +13,8 @@ export default class Player {
     set name(newName) {
         this._name = newName;
     }
+
+    get gameboard() {
+        return this._gameBoard;
+    }
 }

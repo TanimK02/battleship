@@ -14,8 +14,8 @@
     "webpack-merge": "^6.0.1"
   },
   "scripts": {
-    "build": "webpack",
-    "dev": "webpack serve",
+    "start": "webpack serve --open --config webpack.dev.js",
+    "build": "webpack --config webpack.prod.js",
     "watch": "jest --watchAll"
   }
 }
