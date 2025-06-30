@@ -3,9 +3,14 @@ import Player from './player'
 import Ship from './ship'
 
 
-const resetAll = () => {
-    document.querySelectorAll(".selectableSquare").forEach(el => {
-        el.classList.remove("selectableSquare");
+const resetAll = (val) => {
+    document.querySelectorAll(".gameboard").forEach(el => {
+        const filler = new Player("Player");
+        const playerBoard = document.getElementById("playerGameboard");
+        const computerBoard = document.getElementById("computerGameboard");
+        document.getElementById("info").innerText = val ? "You Win!" : "You Lose!";
+        loadGameboard(filler, playerBoard);
+        loadGameboard(filler, computerBoard);
     });
     document.getElementById("resetContainer").style.display = "flex";
 }
@@ -20,7 +25,7 @@ const attack = (e, player, board) => {
         loadGameboard(player, board, true, true);
         if (player.gameboard.allSunk()) {
             console.log("you Win")
-            resetAll();
+            resetAll(true);
             return false
         }
         return true
@@ -39,7 +44,7 @@ const returnAttack = (player, board) => {
 
     loadGameboard(player, board, false, false);
     if (player.gameboard.allSunk()) {
-        resetAll();
+        resetAll(false);
         console.log("you Win")
     }
 }
@@ -62,7 +67,7 @@ function loadGameboard(player, gameboardDiv, selectable = false, attackable = fa
                     }
                 })
             }
-            if (area && area != "hit" && area != "missed" && player.name != "Computer") {
+            if (area && area != "hit" && area != "missed") {
                 newSquare.classList.add("ship")
             }
             if (selectable && area != "hit" && area != "missed") {
