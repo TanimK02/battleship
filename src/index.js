@@ -67,7 +67,7 @@ function loadGameboard(player, gameboardDiv, selectable = false, attackable = fa
                     }
                 })
             }
-            if (area && area != "hit" && area != "missed") {
+            if (area && area != "hit" && area != "missed" && player.name != "Computer") {
                 newSquare.classList.add("ship")
             }
             if (selectable && area != "hit" && area != "missed") {
